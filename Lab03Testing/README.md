@@ -82,9 +82,7 @@ This should now appear as another authenticator in your list.
 > [!WARNING]
 > Enusre you remove this authenticator when you are done. Whilst you need the secret, it should not be an option.
 
-> All these secrets and passwords are passed as plain text in our lab, in a production and alm scenarios, these will be kept within a key vault to ensure they are not shared.
-
-
+> {!TIP] All these secrets and passwords are passed as plain text in our lab, in a production and alm scenarios, these will be kept within a key vault to ensure they are not shared.
 
    3. Install a dummy solution 
    4. Create a test script
