@@ -43,9 +43,9 @@ This will create a sample test script in your new folder and allow you to run th
 
  Once returned, take a look at the results
 
- ````npx
+ ```npx
  npx playwright show-report
- ````
+ ```
 
  This will display a webpage with the results for you to dissect.
 
@@ -79,7 +79,10 @@ Enter the code from your authenticator app and click Next.
 
 This should now appear as another authenticator in your list.
 
+> [!WARNING]
+> Enusre you remove this authenticator when you are done. Whilst you need the secret, it should not be an option.
 
+> All these secrets and passwords are passed as plain text in our lab, in a production and alm scenarios, these will be kept within a key vault to ensure they are not shared.
 
 
 
