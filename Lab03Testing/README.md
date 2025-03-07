@@ -100,7 +100,39 @@ Playwight can create scripts from your actions in a browser and we will use this
 ```npm
 npx playwright codegen https://<your org>.crmXX.dynamics.com
 ```
+This should open up a chromium (Not Chrome or Safari etc) browser with a log in box
+
+![alt text](image-6.png)
+
+As you move your cursor around, the selection items are highlighted and the Playwright inspector shows you what it wants to do.
+
+2. Enter your Email and hit next
+
+3. Enter your password and select Sign in
+
+4. This should present you with the standard Approve Sign in Request box.
+
+5. Select the 'I can't use my Microsoft Authenticator app right now'
+
+![alt text](image-7.png)
+
+6. Select Use a verification code
+
+7. In your authenicator app, select the profile for your app you created earlier(you will have a popup for the normal route, but ignore that) and enter the code that is displayed, then choose Verify
+
+8. Select Yes on the 'Stay Signed in?' Page
+
+9. You should be presented with the App selector screen, lets go to the Contoso Real Estate Admin app we imported. 
+
+10. Select the first listing to go to the record (It depends on what records you created in the pre-requisites stages on what you see here)
+
+![alt text](image-8.png)
+
+So this should mean we are in a listing record. Let us check we are getting the results we expect by asserting (Testing term for making sure) a few things.
+
+
+
    5. Change your solution and run the script
 
    3. Configuring DevOps
-bb7mmn7skc6rn752
+
