@@ -2,33 +2,36 @@
 
 To enable a smooth lab experience, we require you to have completed some pre-workshops activities.
 
-### Create / have access to 3 environments. 
+### Create / have access to 3 environments
+
 @daiasjose08
 Depending on your employer, you may have the environments already, but the enviornments do need to be seperate to your current environments to prevent inadverdent moving of solutions around and corruption
 
 Microsoft provides all users the ability to have 3 developer environments which are perfect for our lab.
 
 ## Create Azure DevOps
+
 @mnecker
+
 ## Install VS Code
 
 VS Code is a code editor provided by Microsoft which we will use to complete some automated testing.
 
-1. Navigate to https://code.visualstudio.com/download and download and install VSCode version appropriate for your machine.
+1. Navigate to <https://code.visualstudio.com/download> and download and install VSCode version appropriate for your machine.
 
 ## Import a sample solution and data
 
 To accomodate our lab, we will re-use a solution that has been prepared for you. This will be set up in your Developer environment and moved through the environments by the pipelines you create in the lab.
 
-1. Download the unmanaged solution for a Accomodation listing app from https://linked365.blog/CPSDevOpsSolution_1_0_0_3.zip
-2. Download the data files from https://linked365.blog/Listing_Files.zip and extract the files into a folder.
+1. Download the unmanaged solution for a Accomodation listing app from <https://linked365.blog/CPSDevOpsSolution_1_0_0_3.zip>
+2. Download the data files from <https://linked365.blog/Listing_Files.zip> and extract the files into a folder.
 3. Import the Solution in your Developer Environment
-    
+
     1. Go to Make.powerapps.com and ensure the selected environment is your Developer Environment (1)
 
      ![alt text](image.png)
 
-     2. Select Solutions (2) then Import Solution
+     2. Select Solutions (2) then Import Solution (3)
 
      3. Browse for the solution you downloaded and select Next
 
