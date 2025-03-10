@@ -130,7 +130,13 @@ As you move your cursor around, the selection items are highlighted and the Play
 
 So this should mean we are in a listing record. Let us check we are getting the results we expect by asserting (Testing term for making sure) a few things.
 
+Select the Assert Text button then the first listing
 
+![alt text](image-9.png)
+
+![alt text](image-10.png)
+
+![alt text](image-11.png)
 
    5. Change your solution and run the script
 
