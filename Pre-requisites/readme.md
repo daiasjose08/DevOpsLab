@@ -11,7 +11,24 @@ Microsoft provides all users the ability to have 3 developer environments which 
 
 ## Create Azure DevOps
 
-@mnecker
+For Azure DevOps use the same Microsoft account which you used to create your Developer environments. If you already have an Azure DevOps organization you can skip part 1 and directly create a new project in your existing organization.
+
+### Create Azure DevOps organization
+
+ 1. As a first step we need an Azure subscription, you can either use an existing one or sign up for the free Azure subscription here which will additionally give you $200 for 30 days (not needed for this lab): <https://azure.microsoft.com/en-in/pricing/purchase-options/azure-account>
+ ![Azure Account Sign Up](./images/azdevops-1.png)
+ 2. Fill out the sign up form, you will need a credit card for authentication but Microsoft will not charge you unless you change the subscription to pay-as-you-go after your credits are used. Azure DevOps will not consume any credits.
+ 3. After your account is created go to <https://portal.azure.com/> and log in. Afterwards search for "Azure DevOps" in the global search and select "Azure DevOps organizations".
+ ![Searching for Azure DevOps in Azure portal](./images/azdevops-2.png)
+ 4. Click on "My Azure DevOps Organizations", fill out the form with your details and click on "Continue".
+ ![Opening your Azure DevOps Organizations](./images/azdevops-3.png)
+ 5. In the Azure DevOps portal click on "Create new organization", and give it a name on the next screen
+ ![Azure DevOps portal](./images/azdevops-4.png)
+ 6. Once your organization is created you are directed to a screen to create a new project. Give it a name and click on "Create project"
+ ![Create a new project in Azure DevOps](./images/azdevops-5.png)
+
+ Congrats on creating your Azure DevOps organization and project for the lab! 🥳
+
 
 ## Install VS Code
 
