@@ -192,6 +192,51 @@ Change this line to be
 
 This will use your secret and create a code and replicate you entering a code. 
 
-5. Change your solution and run the script
+4. Finally, Playwright is not as forgiving on loading as Power Platform is, so we need to just tweak the time outs for the expect action (when something is asserted or expected to be there to twice the normal)
 
-3. Configuring DevOps
+Find the playwright.config.ts file in your top level directory, and add the line below the fullyParrallel line
+
+````ts
+  expect: {timeout: 10 * 1000},
+````
+
+![alt text](Images/image-14.png)
+
+> {!TIP] If you are struggling with getting your tests running, disabling one or more of the projects (the browser bases that your tests run on) a little further down by commenting out the Safari entry for example
+
+![alt text](Images/image-15.png)
+
+5. Make sure all your files are saved (Ctrl + K, S) and re-run your test by running in the terminal the test command
+
+````npm
+ npx playwright run
+ ````
+
+ Hopefully everything works and you get a positive result!
+
+### Change your solution and run the script
+As you are testing to ensure a solution always contains certain things, in our instance, we have a view with 2 columns, Address and Display Name, To make the test fail, edit the view and retest. 
+1. go and tweak the Active Listings View to remove the Address column. 
+
+2. Save and Publish the view.
+
+3. Check in your application the address view is no longer present.
+
+4. Re-run the test in Playwright
+
+You should get a failure and the report is automatically displayed
+
+![alt text](Images/image-16.png)
+Click on the Red item to see what failed, in our case, the Address field is not present.
+
+![alt text](Images/image-17.png)
+
+5. Add the address field back and re-run your test to prove you have now fixed your test.
+
+### Configuring DevOps
+
+The ideal scenario is for when a dev pushes their code into a test environment, a suite of tests are run against it, built up from what the testers and users deemed as being important. This suite will build over time to include aspects that are not changed over time but may be inadvertently changed (fields in view, fields on forms, calculations etc etc.)
+
+Let us know look how to add our Playwright test script to ADO.
+
+
