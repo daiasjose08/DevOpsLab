@@ -1,13 +1,51 @@
 # Prerequistes
 
-To enable a smooth lab experience, we require you to have completed some pre-workshops activities.
+To enable a smooth lab experience, we require you to have completed some pre-workshop activities.
 
-### Create / have access to 3 environments
+## Set Up three Developer Environments for the Power Platform ALM Workshop
 
-@daiasjose08
-Depending on your employer, you may have the environments already, but the enviornments do need to be seperate to your current environments to prevent inadverdent moving of solutions around and corruption
+## Sign Up for Developer Environments
 
-Microsoft provides all users the ability to have 3 developer environments which are perfect for our lab.
+### If You Have a Work/School Account
+If you already have a work or school account and want to use it to learn Power Platform, proceed to the next section.
+
+### If You Don't Have a Work/School Account
+If you don't have a work or school account or prefer a Sandbox tenant to learn Power Platform then first, create a [test tenant](https://learn.microsoft.com/en-us/power-platform/developer/create-developer-environment#how-to-create-a-test-tenant) and then proceed to next section.
+
+---
+
+## Creating and Accessing Developer Environments
+
+### Steps to Create Developer Environments (DEV, UAT, and PROD)
+
+1. **Login** to [Power Platform Admin Center](https://admin.powerplatform.microsoft.com/) using your Microsoft account.
+2. Ensure **New admin center toggle** is turned on.
+3. Navigate to **Manage → Environments → New**.
+4. Use the following settings to create three environments: DEV, UAT, and PROD.
+
+| Setting                     | DEV         | UAT         | PROD        |
+|-----------------------------|------------|------------|------------|
+| **Name**                    | CPPS DEV   | CPPS UAT   | CPPS PROD  |
+| **Make this a managed environment** | No | Yes | Yes |
+| **Group**                   | None       | None       | None       |
+| **Region**                  | Canada     | Canada     | Canada     |
+| **Get new features**        | No         | No         | No         |
+| **Type**                    | Developer  | Developer  | Developer  |
+| **Purpose**                 | Source environment for CPPS 2025 ALM workshop | Target environment for CPPS 2025 ALM workshop | Target environment for CPPS 2025 ALM workshop |
+| **Add a Dataverse data store** | Yes | Yes | Yes |
+| **Pay-as-you-go with Azure** | No | No | No |
+
+5. Click **Save** to create the new environment.
+6. Repeat steps **1-5** for all three environments: **DEV, UAT, and PROD**.
+
+---
+
+## Notes
+- Ensure all environments follow the same settings for consistency.
+- The **DEV** environment is the source for the CPPS 2025 ALM workshop.
+- The **UAT** and **PROD** environments are the target environments for testing and deployment.
+- Depending on your employer, you may have the environments already, but the environments do need to be separate to your current environments to prevent inadvertent moving of solutions around and corruption
+- Microsoft provides all users the ability to have 3 developer environments which are perfect for our lab.
 
 ## Create Azure DevOps
 
