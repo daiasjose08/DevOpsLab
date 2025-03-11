@@ -4,12 +4,12 @@ To enable a smooth lab experience, we require you to have completed some pre-wor
 
 ## Set Up three Developer Environments for the Power Platform ALM Workshop
 
-## Sign Up for Developer Environments
+### Sign Up for Developer Environments
 
-### If You Have a Work/School Account
+#### If You Have a Work/School Account
 If you already have a work or school account and want to use it to learn Power Platform, proceed to the next section.
 
-### If You Don't Have a Work/School Account
+#### If You Don't Have a Work/School Account
 If you don't have a work or school account or prefer a Sandbox tenant to learn Power Platform then first, create a [test tenant](https://learn.microsoft.com/en-us/power-platform/developer/create-developer-environment#how-to-create-a-test-tenant) and then proceed to next section.
 
 ---
