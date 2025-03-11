@@ -91,15 +91,16 @@ This should now appear as another authenticator in your list.
 
 ### Create a starter Test Script
 
-To enable automated testing, you need to tell Playwright what to do and what to check once you have done it. 
+To enable automated testing, you need to tell Playwright what to do and what to check once you have done it.
 
 Playwight can create scripts from your actions in a browser and we will use this technique to firstly authenticate then expand to ensure what we test is accurate.
 
-1. Open the recording harness with your org 
+1. Open the recording harness with your org
 
 ```npm
 npx playwright codegen https://<your org>.crmXX.dynamics.com
 ```
+
 This should open up a chromium (Not Chrome or Safari etc) browser with a log in box
 
 ![alt text](image-6.png)
@@ -122,7 +123,7 @@ As you move your cursor around, the selection items are highlighted and the Play
 
 8. Select Yes on the 'Stay Signed in?' Page
 
-9. You should be presented with the App selector screen, lets go to the Contoso Real Estate Admin app we imported. 
+9. You should be presented with the App selector screen, lets go to the Contoso Real Estate Admin app we imported.
 
 10. Select the first listing to go to the record (It depends on what records you created in the pre-requisites stages on what you see here)
 
@@ -130,7 +131,7 @@ As you move your cursor around, the selection items are highlighted and the Play
 
 So this should mean we are in a listing record. Let us check we are getting the results we expect by asserting (Testing term for making sure) a few things.
 
-Select the Assert Text button then the first listing
+Select the Assert Text button then the first listing (This should be Beach House if you have imported the data from the pre-requisites)
 
 ![alt text](image-9.png)
 
@@ -138,7 +139,59 @@ Select the Assert Text button then the first listing
 
 ![alt text](image-11.png)
 
-   5. Change your solution and run the script
+Ensure you select the Accept tick.
 
-   3. Configuring DevOps
+11. Repeat this action to assert the Address and Display Name columns are going to be there.
 
+12. Take a look at the Playwright Inspector window, it should be very similar to mine below.
+
+> {!TIP] If you see Enter options in your field entries, ensure you remove them. We have a happy of just pressing enter when entering passwords and other information, which works great when Playwright runs the test, but can be hit and miss when you are walking through the test scripts.
+
+![alt text](image-12.png)
+
+### Automate login using a generated code
+
+To automate this script, so it runs everytime, on every browser without interaction, we need to tweak the code entry to ensure it uses that which we generated.
+
+1. Copy the code in the Playwright Inspector Window.
+
+2. Create a new file in your VS Code Tests folder and call it testscriptlab.spec.ts
+
+Paste your code into that box.
+
+![alt text](image-13.png)
+
+At the top of the code, below the first line copy the following code
+
+````ts
+import * as OTPAuth from 'otpauth';
+
+let totp = new OTPAuth.TOTP({
+    issuer: "Microsoft",
+    algorithm: "SHA1",
+    digits: 6,
+    period: 30,
+    secret: "<your secret>",
+  })
+
+````
+
+Ensure you replace your secret above with the secret key you generated in step 2.7 above.
+
+This code is a small method that creates that 6 digit number for you. The code is a timestamp and secret combination, so if you know the secret, you can generate the code. This is used throughout the MFA world and is industry standard.
+
+3. Find the line in your code where your script enters the code, it should look like 
+
+````ts
+  await page.getByRole('textbox', { name: 'Enter code' }).fill('577642');
+````
+Change this line to be
+````ts
+    await page.getByRole('textbox', { name: 'Enter code' }).fill(totp.generate());
+````
+
+This will use your secret and create a code and replicate you entering a code. 
+
+5. Change your solution and run the script
+
+3. Configuring DevOps
