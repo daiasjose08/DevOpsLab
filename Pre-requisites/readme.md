@@ -7,9 +7,11 @@ To enable a smooth lab experience, we require you to have completed some pre-wor
 ### Sign Up for Developer Environments
 
 #### If You Have a Work/School Account
+
 If you already have a work or school account and want to use it to learn Power Platform, proceed to the next section.
 
 #### If You Don't Have a Work/School Account
+
 If you don't have a work or school account or prefer a Sandbox tenant to learn Power Platform then first, create a [test tenant](https://learn.microsoft.com/en-us/power-platform/developer/create-developer-environment#how-to-create-a-test-tenant) and then proceed to next section.
 
 ---
@@ -41,6 +43,7 @@ If you don't have a work or school account or prefer a Sandbox tenant to learn P
 ---
 
 ## Notes
+
 - Ensure all environments follow the same settings for consistency.
 - The **DEV** environment is the source for the CPPS 2025 ALM workshop.
 - The **UAT** and **PROD** environments are the target environments for testing and deployment.
@@ -66,7 +69,6 @@ For Azure DevOps use the same Microsoft account which you used to create your De
  ![Create a new project in Azure DevOps](./images/azdevops-5.png)
 
  Congrats on creating your Azure DevOps organization and project for the lab! 🥳
-
 
 ## Install VS Code
 
@@ -104,15 +106,17 @@ To accomodate our lab, we will re-use a solution that has been prepared for you.
 
      The application should load (with no data)
 
-     7. Import some sample data
+### Import Sample Data
+
+ 1. Import some sample data
 
      Back in the solution, select Tables, Listing, The Import dropdow and select Import data from excel
 
      ![alt text](image-3.png)
 
-     8. Select the listings file extracted from the data files zip in step 2.
+ 2. Select the listings file extracted from the data files zip in step 2.
 
-     9. Select Import
+ 3. Select Import
 
      Repeat the last 3 steps for the other files in the zip file and upload data (in this order) for
 
@@ -121,4 +125,4 @@ To accomodate our lab, we will re-use a solution that has been prepared for you.
         3. contoso_listingfees
         4. contacts
 
-    10. Reopen the app from step 6 and you should see data being populated.
+ 4. Reopen the app from step 6 and you should see data being populated.
