@@ -1,4 +1,4 @@
-# Prerequistes
+# Prerequisites
 
 To enable a smooth lab experience, we require you to have completed some pre-workshop activities.
 
@@ -78,9 +78,9 @@ VS Code is a code editor provided by Microsoft which we will use to complete som
 
 ## Import a sample solution and data
 
-To accomodate our lab, we will re-use a solution that has been prepared for you. This will be set up in your Developer environment and moved through the environments by the pipelines you create in the lab.
+To accommodate our lab, we will re-use a solution that has been prepared for you. This will be set up in your Developer environment and moved through the environments by the pipelines you create in the lab.
 
-1. Download the unmanaged solution for a Accomodation listing app from <https://linked365.blog/CPSDevOpsSolution_1_0_0_3.zip>
+1. Download the unmanaged solution for a accommodation listing app from <https://linked365.blog/CPSDevOpsSolution_1_0_0_3.zip>
 2. Download the data files from <https://linked365.blog/Listing_Files.zip> and extract the files into a folder.
 3. Import the Solution in your Developer Environment
 
@@ -110,7 +110,7 @@ To accomodate our lab, we will re-use a solution that has been prepared for you.
 
  1. Import some sample data
 
-     Back in the solution, select Tables, Listing, The Import dropdow and select Import data from excel
+     Back in the solution, select Tables, Listing, The Import dropdown and select Import data from excel
 
      ![alt text](image-3.png)
 

@@ -85,7 +85,7 @@ For our lab, we will be adding a Timed One Time Passcode method, which will mimi
 This should now appear as another authenticator in your list.
 
 > [!WARNING]
-> Enusre you remove this authenticator when you are done. Whilst you need the secret, it should not be an option.
+> ensure you remove this authenticator when you are done. Whilst you need the secret, it should not be an option.
 
 > {!TIP] All these secrets and passwords are passed as plain text in our lab, in a production and alm scenarios, these will be kept within a key vault to ensure they are not shared.
 
@@ -119,7 +119,7 @@ As you move your cursor around, the selection items are highlighted and the Play
 
 6. Select Use a verification code
 
-7. In your authenicator app, select the profile for your app you created earlier(you will have a popup for the normal route, but ignore that) and enter the code that is displayed, then choose Verify
+7. In your authenticator app, select the profile for your app you created earlier(you will have a popup for the normal route, but ignore that) and enter the code that is displayed, then choose Verify
 
 8. Select Yes on the 'Stay Signed in?' Page
 
@@ -151,7 +151,7 @@ Ensure you select the Accept tick.
 
 ### Automate login using a generated code
 
-To automate this script, so it runs everytime, on every browser without interaction, we need to tweak the code entry to ensure it uses that which we generated.
+To automate this script, so it runs every time, on every browser without interaction, we need to tweak the code entry to ensure it uses that which we generated.
 
 1. Copy the code in the Playwright Inspector Window.
 
@@ -194,7 +194,7 @@ This will use your secret and create a code and replicate you entering a code.
 
 4. Finally, Playwright is not as forgiving on loading as Power Platform is, so we need to just tweak the time outs for the expect action (when something is asserted or expected to be there to twice the normal)
 
-Find the playwright.config.ts file in your top level directory, and add the line below the fullyParrallel line
+Find the playwright.config.ts file in your top level directory, and add the line below the fullyparallel line
 
 ````ts
   expect: {timeout: 10 * 1000},
