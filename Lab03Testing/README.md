@@ -8,10 +8,6 @@ Power Apps comes with the Power Apps Test Studio, but it is limited (currently) 
 
 Playwright is an open source framework, created by Microsoft to allow testing across multiple browsers and websites, and will work for Model Driven apps, first party apps (such as Customer Service and Field Service), Canvas Apps and Power Pages. It is ideal if your solution spans multiple parts of the platform.
 
-## Using Power Apps Test Studio
-
-1. Create a test script in Test Studio
-
 ## Using Playwright
 
 ### 1. Install Playwright
