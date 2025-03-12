@@ -237,6 +237,65 @@ Click on the Red item to see what failed, in our case, the Address field is not 
 
 The ideal scenario is for when a dev pushes their code into a test environment, a suite of tests are run against it, built up from what the testers and users deemed as being important. This suite will build over time to include aspects that are not changed over time but may be inadvertently changed (fields in view, fields on forms, calculations etc etc.)
 
-Let us know look how to add our Playwright test script to ADO.
+For our lab, we will create a new pipeline, associated with the test script you have just created. In the real world, this code will form part of the same repository, developers will add to their test scripts and the whole will be run as part of the main pipeline you have created in the previous lab.
 
+1. Create a new project in Azure DevOps by logging into your DevOps org and selecting New Project
 
+![alt text](Images/image-18.png)
+
+Give it an appropriate name
+
+2. Find the link to the repository you have now created for your code by choosing Repos then copy the url.
+
+![alt text](Images/image-19.png)
+
+3. Push the test script you have created to your ADO
+
+4. Create a Pipeline in your new project
+
+Using YAML Editor, add the following
+
+````yaml
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger:
+- main
+
+pool:
+  vmImage: ubuntu-latest
+
+steps:
+- task: NodeTool@0
+  inputs:
+    versionSpec: '18'
+  displayName: 'Install Node.js'
+- script: npm ci
+  displayName: 'npm ci'
+- script: npx playwright install --with-deps
+  displayName: 'Install Playwright browsers'
+- script: npx playwright test
+  displayName: 'Run Playwright tests'
+  env:
+    CI: 'true'
+- task: PublishTestResults@2
+  displayName: 'Publish test results'
+  inputs:
+    searchFolder: 'test-results'
+    testResultsFormat: 'JUnit'
+    testResultsFiles: 'e2e-junit-results.xml'
+    mergeTestResults: true
+    failTaskOnFailedTests: true
+    testRunTitle: 'My End-To-End Tests'
+  condition: succeededOrFailed()
+- task: PublishPipelineArtifact@1
+  inputs:
+    targetPath: playwright-report
+    artifact: playwright-report
+    publishLocation: 'pipeline'
+  condition: succeededOrFailed()
+````
+
+This pipeline will firstly install node.js and Playwright before running the tests then publishing the results.
