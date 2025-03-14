@@ -43,6 +43,7 @@ If you **already have a work/school account** and want to use it for learning Po
 5. Click **Save** to create the new environment.
 
 ![Save Environment](./images/createENV3.jpg)
+
 6. Repeat steps **1-5** for all three environments: **DEV, UAT, and PROD**.
 ![All Environments](./images/createENV4.jpg)
 
