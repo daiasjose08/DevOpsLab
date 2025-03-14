@@ -6,7 +6,7 @@ To enable a smooth lab experience, we require you to have completed some pre-wor
 
 ### Sign Up for Developer Environments  
 
-###$ Option 1: No Work/School Account (Sandbox Tenant)  
+#### Option 1: No Work/School Account (Sandbox Tenant)  
 If you **don't have a work/school account** or prefer a **Sandbox tenant** to explore Power Platform:  
 1. **[Create a test tenant](https://learn.microsoft.com/en-us/power-platform/developer/create-developer-environment#how-to-create-a-test-tenant)**.  
 2. Sign up for the [Power Apps Developer Plan](https://developer.microsoft.com/en-us/power-platform).  
