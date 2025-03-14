@@ -23,6 +23,7 @@ If you **already have a work/school account** and want to use it for learning Po
 1. **Login** to [Power Platform Admin Center](https://admin.powerplatform.microsoft.com/) using your Microsoft account.
 2. Ensure **New admin center toggle** is turned on.
 3. Navigate to **Manage → Environments → New**.
+ ![Admin Center](./Pre-requisites/images/createENV1.jpg)
 4. Use the following settings to create three environments: DEV, UAT, and PROD.
 
 | Setting                     | DEV         | UAT         | PROD        |
@@ -36,9 +37,11 @@ If you **already have a work/school account** and want to use it for learning Po
 | **Purpose**                 | Source environment for CPPS 2025 ALM workshop | Target environment for CPPS 2025 ALM workshop | Target environment for CPPS 2025 ALM workshop |
 | **Add a Dataverse data store** | Yes | Yes | Yes |
 | **Pay-as-you-go with Azure** | No | No | No |
-
+![Admin Center](./Pre-requisites/images/createENV2.jpg)
 5. Click **Save** to create the new environment.
+![Admin Center](./Pre-requisites/images/createENV3.jpg)
 6. Repeat steps **1-5** for all three environments: **DEV, UAT, and PROD**.
+![Admin Center](./Pre-requisites/images/createENV4.jpg)
 
 ---
 
