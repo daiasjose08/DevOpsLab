@@ -23,7 +23,7 @@ If you **already have a work/school account** and want to use it for learning Po
 1. **Login** to [Power Platform Admin Center](https://admin.powerplatform.microsoft.com/) using your Microsoft account.
 2. Ensure **New admin center toggle** is turned on.
 3. Navigate to **Manage → Environments → New**.
- ![Admin Center](./Pre-requisites/images/createENV1.jpg)
+ ![Admin Center](./images/createENV1.jpg)
 4. Use the following settings to create three environments: DEV, UAT, and PROD.
 
 | Setting                     | DEV         | UAT         | PROD        |
