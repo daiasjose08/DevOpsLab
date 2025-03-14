@@ -53,7 +53,7 @@ If you **already have a work/school account** and want to use it for learning Po
 
 - Ensure all environments follow the same settings for consistency.
 - The **DEV** environment is the source for the CPPS 2025 ALM workshop.
-- The **UAT** and **PROD** environments are the target environments for testing and deployment.
+- The **UAT** and **PROD** environments are the target environments for testing and deployment. These two environments must be enabled as **managed** environments. 
 - Depending on your employer, you may have the environments already, but the environments do need to be separate to your current environments to prevent inadvertent moving of solutions around and corruption
 - Microsoft provides all users the ability to have 3 developer environments which are perfect for our lab.
 
