@@ -39,6 +39,7 @@ If you **already have a work/school account** and want to use it for learning Po
 | **Pay-as-you-go with Azure** | No | No | No |
 
 ![Create Environment](./images/createENV2.jpg)
+
 5. Click **Save** to create the new environment.
 
 ![Save Environment](./images/createENV3.jpg)
