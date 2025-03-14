@@ -37,11 +37,11 @@ If you **already have a work/school account** and want to use it for learning Po
 | **Purpose**                 | Source environment for CPPS 2025 ALM workshop | Target environment for CPPS 2025 ALM workshop | Target environment for CPPS 2025 ALM workshop |
 | **Add a Dataverse data store** | Yes | Yes | Yes |
 | **Pay-as-you-go with Azure** | No | No | No |
-![Admin Center](./Pre-requisites/images/createENV2.jpg)
+![Create Environment](./images/createENV2.jpg)
 5. Click **Save** to create the new environment.
-![Admin Center](./Pre-requisites/images/createENV3.jpg)
+![Save Environment](./images/createENV3.jpg)
 6. Repeat steps **1-5** for all three environments: **DEV, UAT, and PROD**.
-![Admin Center](./Pre-requisites/images/createENV4.jpg)
+![All Environments](./images/createENV4.jpg)
 
 ---
 
