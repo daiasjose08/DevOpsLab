@@ -3,6 +3,7 @@
 ## Workshop Pre-requisites
 - Three Power Platform environments to create a pipeline.
 - Identify the host, development, and target environments.
+  
    | Development | UAT       | PROD      | HOST      |
    |------------|----------|----------|----------|
    | CPPS DEV   | CPPS UAT | CPPS PROD | CPPS PROD |
