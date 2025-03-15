@@ -32,7 +32,7 @@ Download the [solution file](LabSolution/ALMSolution_1_0_0_0.zip) and save it on
 *Your solution imports in the background and may take a few moments.*
 
 ### Install Pipelines Application in Your Host Environment
-1. Sign in to [Power Platform Admin Center](https://admin.powerplatform.microsoft.com), then select **Resources > Dynamics 365 apps**.
+1. Sign in to [Power Platform Admin Center](https://admin.powerplatform.microsoft.com), then select **Manage > Dynamics 365 apps**.
 2. Scroll down within the right-side panel until you find **Power Platform Pipelines**.
 3. Click the three dots next to the app and select **Install**.
 4. Select the host environment (CPPS PROD) identified in the pre-requisites.
@@ -62,6 +62,12 @@ Download the [solution file](LabSolution/ALMSolution_1_0_0_0.zip) and save it on
    - **Description**: Deploy solution from DEV to UAT environment
    - **Target Deployment Environment ID**: Select the target environment (CPPS UAT)
    - **Pre-Deployment Step Required**: Select this box to later configure a cloud flow for deployment approvals
+5. Within the same **Deployment Stages** grid, select **New Deployment Stage** to add a new stage for PROD environment.
+6. Enter the details for the new stage, then select **Save & Close**:
+   - **Name**: Deploy to PROD environment
+   - **Description**: Deploy solution from DEV to PROD environment
+   - **Target Deployment Environment ID**: Select the target environment (CPPS PROD)
+   - 
 
 ### Create Approvals for Deployment Using Power Automate Cloud Flow
 1. Navigate to [Power Automate](https://make.powerautomate.com) and select the host environment for cloud flow development.
