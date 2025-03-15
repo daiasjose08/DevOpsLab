@@ -15,7 +15,7 @@
 - **Target environment** - The destination environment a pipeline deploys to, such as integration testing, user acceptance testing (UAT), or production.
 
 ## Workshop Solution
-Download the [solution file](Lab01PowerPlatformPipelines/LabSolution/ALMSolution_1_0_0_0.zip) and save it on your local machine.
+Download the [solution file](LabSolution/ALMSolution_1_0_0_0.zip) and save it on your local machine.
 
 ## Lab Instructions
 
