@@ -23,14 +23,6 @@ Download the [solution file](LabSolution/ALMSolution_1_0_0_0.zip) and save it on
 
 ## Lab Instructions
 
-### Import Workshop Solution to Your Development Environment
-1. Sign in to [Power Apps](https://make.powerapps.com), then select the development environment (CPPS DEV) identified in the pre-requisites.
-2. Navigate to **Solutions**, then on the command bar, select **Import**.
-3. On the **Import a solution** page, select **Browse** to locate the solution file downloaded from the workshop files.
-4. Select **Next**, leave all default settings as is, and select **Import**.
-
-*Your solution imports in the background and may take a few moments.*
-
 ### Install Pipelines Application in Your Host Environment
 1. Sign in to [Power Platform Admin Center](https://admin.powerplatform.microsoft.com), then select **Manage > Dynamics 365 apps**.
 2. Scroll down within the right-side panel until you find **Power Platform Pipelines**.
@@ -39,6 +31,14 @@ Download the [solution file](LabSolution/ALMSolution_1_0_0_0.zip) and save it on
 5. Agree to the terms and select **Install**.
 
 *Once installed, the deployment pipelines configuration application appears in the list of installed apps.*
+
+### Import Workshop Solution to Your Development Environment
+1. Sign in to [Power Apps](https://make.powerapps.com), then select the development environment (CPPS DEV) identified in the pre-requisites.
+2. Navigate to **Solutions**, then on the command bar, select **Import**.
+3. On the **Import a solution** page, select **Browse** to locate the solution file downloaded from the workshop files.
+4. Select **Next**, leave all default settings as is, and select **Import**.
+
+*Your solution imports in the background and may take a few moments.*
 
 ### Set Up Deployment Environments for Pipeline
 1. Once the deployment pipeline package installation is complete in the host environment, go to **Apps**, then play the **Deployment Pipeline Configuration** app.
@@ -61,13 +61,13 @@ Download the [solution file](LabSolution/ALMSolution_1_0_0_0.zip) and save it on
    - **Name**: Deploy to UAT environment
    - **Description**: Deploy solution from DEV to UAT environment
    - **Target Deployment Environment ID**: Select the target environment (CPPS UAT)
-   - **Pre-Deployment Step Required**: Select this box to later configure a cloud flow for deployment approvals
 5. Within the same **Deployment Stages** grid, select **New Deployment Stage** to add a new stage for PROD environment.
 6. Enter the details for the new stage, then select **Save & Close**:
    - **Name**: Deploy to PROD environment
    - **Description**: Deploy solution from DEV to PROD environment
+   - **Previous Deployment Stage**: Select the stage created in the previous steps - **Deploy to UAT**
    - **Target Deployment Environment ID**: Select the target environment (CPPS PROD)
-   - 
+   - **Pre-Deployment Step Required**: Select this box to later configure a cloud flow for deployment approvals
 
 ### Create Approvals for Deployment Using Power Automate Cloud Flow
 1. Navigate to [Power Automate](https://make.powerautomate.com) and select the host environment for cloud flow development.
