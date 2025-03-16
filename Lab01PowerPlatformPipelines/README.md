@@ -34,7 +34,6 @@
 4. On the **Import a solution** page, click **Browse** and select the solution file downloaded earlier.
    ![import](images/install_ALM_solution2.jpg)  
 5. Click **Next**, leave default settings, and select **Import**.
-   ![import](images/install_ALM_solution3.jpg)
 
 ⏳ *Solution import may take a few moments.*  
 
