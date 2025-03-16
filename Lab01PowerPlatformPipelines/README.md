@@ -30,7 +30,7 @@
 1. Sign in to [Power Apps](https://make.powerapps.com).
 2. Select the **development environment (CPPS DEV)** from the prerequisites.  
 3. Navigate to **Solutions**, then select **Import**.
-   [import](images/install_ALM_solution1.jpg)
+   ![import](images/install_ALM_solution1.jpg)
 5. On the **Import a solution** page, click **Browse** and select the solution file downloaded earlier.  
 6. Click **Next**, leave default settings, and select **Import**.  
 
