@@ -27,11 +27,12 @@
 ## Lab Instructions  
 
 ### 1️⃣ Import Workshop Solution to Your Development Environment  
-1. Sign in to [Power Apps](https://make.powerapps.com).  
+1. Sign in to [Power Apps](https://make.powerapps.com).
 2. Select the **development environment (CPPS DEV)** from the prerequisites.  
-3. Navigate to **Solutions**, then select **Import**.  
-4. On the **Import a solution** page, click **Browse** and select the solution file downloaded earlier.  
-5. Click **Next**, leave default settings, and select **Import**.  
+3. Navigate to **Solutions**, then select **Import**.
+   [import](images/install_ALM_solution1.jpg)
+5. On the **Import a solution** page, click **Browse** and select the solution file downloaded earlier.  
+6. Click **Next**, leave default settings, and select **Import**.  
 
 ⏳ *Solution import may take a few moments.*  
 
