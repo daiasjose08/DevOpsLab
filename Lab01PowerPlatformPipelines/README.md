@@ -41,10 +41,13 @@
 
 ### 2️⃣ Install Pipelines Application in Your Host Environment  
 1. Sign in to the [Power Platform Admin Center](https://admin.powerplatform.microsoft.com).  
-2. Select **Manage > Dynamics 365 apps**.  
+2. Select **Manage > Dynamics 365 apps**.
+   ![import](images/pipeline_app1.jpg)
 3. Scroll down to find **Power Platform Pipelines**.  
-4. Click the **three dots** next to the app and select **Install**.  
-5. Select the **host environment (CPPS PROD)** from the prerequisites.  
+4. Click the **three dots** next to the app and select **Install**.
+   ![import](images/pipeline_app2.jpg)
+5. Select the **host environment (CPPS PROD)** from the prerequisites.
+   ![import](images/pipeline_app3.jpg)
 6. Agree to the terms and select **Install**.  
 
 ✅ *Once installed, the deployment pipelines configuration app appears in the list of installed apps.*  
