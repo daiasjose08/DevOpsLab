@@ -55,36 +55,49 @@
 ---
 
 ### 3️⃣ Set Up Deployment Environments for the Pipeline  
-1. Once the **Deployment Pipeline** package is installed in the **host environment**, go to **Apps** and open **Deployment Pipeline Configuration**.  
-2. Select **Environments** > **New** to create environment records in Dataverse:  
+1. Once the **Deployment Pipeline** package is installed in the **host environment**, go to **Apps** and open **Deployment Pipeline Configuration**.
+   ![import](images/setup_pipeline1.jpg)
+   ![import](images/setup_pipeline2.jpg)
+2. Select **Environments** > **New** to create environment records in Dataverse:
+   ![import](images/setup_pipeline3.jpg)
    - **Name**: (e.g., CPPS DEV)  
    - **Environment Type**: Select **Development Environment** for source, **Target Environment** for targets  
    - **Environment ID**: Enter the correct ID  
-   - **Description**: Optional  
+   - **Description**: Optional
+   ![import](images/setup_pipeline4.jpg)
 3. Click **Save**.  
 4. Refresh the form and verify that **Validation Status = Success**.  
-5. Repeat steps 2-4 for all three environments **CPPS DEV, CPPS UAT, CPPS PROD**.  
+5. Repeat steps 2-4 for all three environments **CPPS DEV, CPPS UAT, CPPS PROD**.
+   ![import](images/setup_pipeline5.jpg) 
 
 ---
 
 ### 4️⃣ Configure the Deployment Pipeline  
-1. In the **Deployment Pipeline Configuration** app, go to **Pipelines** > **New**:  
+1. In the **Deployment Pipeline Configuration** app, go to **Pipelines** > **New**:
+   ![import](images/setup_pipeline6.jpg)
    - **Name**: My First Custom Pipeline  
-   - **Description**: CPPS 2025 ALM workshop  
+   - **Description**: CPPS 2025 ALM workshop
+   ![import](images/setup_pipeline7.jpg)
 2. Click **Save**.  
-3. In the **Linked Development Environments** section, click **Add Existing Development Environment** and select **CPPS DEV**.  
-4. In **Deployment Stages**, click **New Deployment Stage**:  
+3. In the **Linked Development Environments** section, click **Add Existing Development Environment** and select **CPPS DEV**.
+   ![import](images/setup_pipeline8.jpg)
+   ![import](images/setup_pipeline9.jpg)
+4. In **Deployment Stages**, click **New Deployment Stage**:
+   ![import](images/setup_pipeline10.jpg)
    - **Name**: Deploy to UAT Environment  
    - **Description**: Deploy solution to UAT  
    - **Target Deployment Environment ID**: Select **CPPS UAT**  
-   - Click **Save & Close**.  
+   - Click **Save & Close**.
+   ![import](images/setup_pipeline11.jpg)  
 5. Add another **New Deployment Stage**:  
    - **Name**: Deploy to PROD Environment  
    - **Description**: Deploy solution to PROD  
    - **Previous Deployment Stage**: Select **Deploy to UAT**  
    - **Target Deployment Environment ID**: Select **CPPS PROD**  
    - **Pre-Deployment Step Required**: ✅ (for approval setup)  
-   - Click **Save & Close**.  
+   - Click **Save & Close**.
+   ![import](images/setup_pipeline12.jpg)
+   ![import](images/setup_pipeline13.jpg)
 
 ---
 
@@ -94,13 +107,18 @@
 3. Enter the following details and click **Create**:  
    - **Display Name**: Pipeline Extension Flows  
    - **Name**: (leave as-is)  
-   - **Publisher**: Select from the list  
-4. Inside the solution, click **New > Automation > Cloud Flow > Automated**.  
-5. Name the flow **Pre-Deployment Approval Flow** and select **Create**.  
+   - **Publisher**: Select from the list
+   ![import](images/setup_pipeline14.jpg) 
+4. Inside the solution, click **New > Automation > Cloud Flow > Automated**.
+   ![import](images/setup_pipeline15.jpg)
+5. Name the flow **Pre-Deployment Approval Flow** and select **Create**.
+   ![import](images/setup_pipeline16.jpg)  
 6. Configure the **When an action is performed** trigger:  
    - **Catalog**: Microsoft Dataverse Common  
    - **Category**: Power Platform Pipelines  
-   - **Action Name**: OnPreDeploymentStarted  
+   - **Action Name**: OnPreDeploymentStarted
+   - **Trigger Condition**: @equals(triggerOutputs()?['body/OutputParameters/DeploymentPipelineName'], 'My First Custom Pipeline')
+   ![import](images/setup_pipeline17.jpg)
 7. Click **New Step** and add **Start and wait for an approval**:  
    - **Approval Type**: Approve/Reject – Everyone must approve  
    - **Title**: Approve Deployment  
@@ -115,20 +133,27 @@
    - **Action Name**: UpdatePreDeploymentStepStatus
    - **Item/StageRunID**: Add Dynamic content **ActionInputs StageRunID
    - **PreDeploymentStepStatus**:30
+   ![import](images/setup_pipeline18.jpg) 
 12. Click **Save** to save the flow. 
 
 ---
 
 ### 6️⃣ Run the Pipeline  
-1. Navigate to your development environment (CPPS DEV) and go to **Solutions**.  
+1. Navigate to your development environment (CPPS DEV) and go to **Solutions**.
 2. Select the solution imported in Step 1.  
 3. Select **Overview** from the left navigation pane.  
 4. Choose **My First Custom Pipeline**.  
-5. Select **Deploy to UAT**, then **Deploy here**.  
-6. Review the summary and select **Deploy**.  
-7. After deployment to UAT, select **Deploy to PROD**.  
-8. Approve the request in **MS Teams/Outlook**.  
-9. Once fully deployed, review the run histories in **Deployment Pipeline Configuration**.  
+5. Select **Deploy to UAT**, then **Deploy here**.
+   ![import](images/setup_pipeline19.jpg) 
+6. Review the summary and select **Deploy**.
+   ![import](images/setup_pipeline20.jpg) 
+7. After deployment to UAT, select **Deploy to PROD**.
+   ![import](images/setup_pipeline21.jpg) 
+8. Approve the request in **MS Teams/Outlook**.
+   ![import](images/setup_pipeline22.jpg) 
+10. Once deployment to the target environment finishes, review the run histories in **Deployment Pipeline Configuration**.
+   ![import](images/setup_pipeline23.jpg) 
+
 
 ---
 
