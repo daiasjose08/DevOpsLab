@@ -64,7 +64,6 @@
    - **Environment Type**: Select **Development Environment** for source, **Target Environment** for targets  
    - **Environment ID**: Enter the correct ID  
    - **Description**: Optional
-   ![import](images/setup_pipeline4.jpg)
 3. Click **Save**.  
 4. Refresh the form and verify that **Validation Status = Success**.  
 5. Repeat steps 2-4 for all three environments **CPPS DEV, CPPS UAT, CPPS PROD**.
@@ -88,6 +87,7 @@
    - **Description**: Deploy solution to UAT  
    - **Target Deployment Environment ID**: Select **CPPS UAT**  
    - Click **Save & Close**.
+   
    ![import](images/setup_pipeline11.jpg)  
 5. Add another **New Deployment Stage**:  
    - **Name**: Deploy to PROD Environment  
@@ -96,6 +96,7 @@
    - **Target Deployment Environment ID**: Select **CPPS PROD**  
    - **Pre-Deployment Step Required**: ✅ (for approval setup)  
    - Click **Save & Close**.
+   
    ![import](images/setup_pipeline12.jpg)
    ![import](images/setup_pipeline13.jpg)
 
@@ -150,6 +151,7 @@
 7. After deployment to UAT, select **Deploy to PROD**.
    ![import](images/setup_pipeline21.jpg) 
 8. Approve the request in **MS Teams/Outlook**.
+   
    ![import](images/setup_pipeline22.jpg) 
 10. Once deployment to the target environment finishes, review the run histories in **Deployment Pipeline Configuration**.
    ![import](images/setup_pipeline23.jpg) 
