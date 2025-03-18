@@ -140,7 +140,7 @@
 12. Click **Save** to save the flow. 
 
 #### 📌 Option 2: Import Solution with the Cloud Flow  
-1. Download the [solution file](LabSolution/PipelineExtensionFlow_1_0_0_1.zip) and save it on your local machine.
+1. Download the [solution file](LabSolution/PipelineExtensionFlows_1_0_0_1.zip) and save it on your local machine.
 2. Choose the **host environment (CPPS PROD)** from the prerequisites for importing the solution.
 3. Navigate to **Solutions**, then select **Import**.
 4. On the **Import a solution** page, click **Browse** and select the solution file downloaded from step1.
