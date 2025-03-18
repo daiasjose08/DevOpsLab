@@ -103,6 +103,8 @@
 ---
 
 ### 5️⃣ Create Deployment Approvals Using Power Automate  
+
+#### 📌 Option 1: Manually Create the Cloud Flow  
 1. Open [Power Automate](https://make.powerautomate.com) and select the **host environment**.  
 2. Go to **Solutions** > **New Solution**.  
 3. Enter the following details and click **Create**:  
@@ -137,6 +139,16 @@
    ![import](images/setup_pipeline18.jpg) 
 12. Click **Save** to save the flow. 
 
+#### 📌 Option 2: Import Solution with the Cloud Flow  
+1. Download the [solution file](LabSolution/PipelineExtensionFlow_1_0_0_1.zip) and save it on your local machine.
+2. Choose the **host environment (CPPS PROD)** from the prerequisites for importing the solution.
+3. Navigate to **Solutions**, then select **Import**.
+4. On the **Import a solution** page, click **Browse** and select the solution file downloaded from step1.
+5. Click **Next**, leave default settings, and select **Import**.
+6. (Optional) If you used a pipeline name different from 'My First Custom Pipeline' in the workshop, open the imported cloud flow in edit mode.
+7. Edit the trigger condition to the following: @equals(triggerOutputs()?['body/OutputParameters/DeploymentPipelineName'], 'Nameofyourpipeline').
+   ![import](images/setup_pipeline17.jpg)
+9. Save and publish the cloud flow. 
 ---
 
 ### 6️⃣ Run the Pipeline  
