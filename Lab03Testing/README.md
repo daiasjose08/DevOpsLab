@@ -4,7 +4,7 @@ Automated testing is a vital component for larger projects, where multiple devel
 
 Triggering automated test scripts as part of the build process reduces manual efforts and greatly reduces the impact of change to projects of any size.
 
-Power Apps comes with the Power Apps Test Studio, but it is limited (currently) to testing Canvas Apps. This is a great starting point if you are only worried about canvas apps.
+Power Apps comes with the Power Apps Test Studio, but it is limited (currently) to testing Canvas Apps and not compatible with MFA. This is a great starting point if you are only worried about canvas apps.
 
 Playwright is an open source framework, created by Microsoft to allow testing across multiple browsers and websites, and will work for Model Driven apps, first party apps (such as Customer Service and Field Service), Canvas Apps and Power Pages. It is ideal if your solution spans multiple parts of the platform.
 
