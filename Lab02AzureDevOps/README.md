@@ -17,6 +17,19 @@
 
 ---
 
+## Lab Overview
+
+1️⃣ Prepare Azure DevOps - Install Power Platform Build Tools 
+2️⃣ Prepare Azure DevOps - Setup Service Connections
+3️⃣ Import Workshop Solution to Your Development Environment 
+4️⃣ Create Solution Repository in Azure DevOps
+5️⃣ Connect environment with repository
+6️⃣ Create a local Azure DevOps agents
+7️⃣ Set up Build Pipeline in Azure DevOps
+8️⃣ Trigger build from environment
+
+---
+
 ## Lab Instructions  
 
 ### 1️⃣ Prepare Azure DevOps - Install Power Platform Build Tools 
@@ -138,7 +151,7 @@ In Azure DevOps all deployments are based on repositories. This covers our need 
 
 ---
 
-### 6️⃣ Connect environment with repository
+### 5️⃣ Connect environment with repository
 As a next step we want to check in our solution content to the newly created repository. This can be done via Pipelines as well, but Microsoft has a new feature in preview which makes this process a lot easier and is integrated in the make.powerapps.com UI. This setup will be done only for the DEV environment, because this will be the only environment where the solution will unmanaged.
 
 1. Go to [make.powerapps.com](https://make.powerapps.com/) and select your DEV environment
@@ -168,7 +181,7 @@ As a next step we want to check in our solution content to the newly created rep
 
 ---
 
-### 7️⃣ Create a local Azure DevOps agents
+### 6️⃣ Create a local Azure DevOps agents
 The free Azure DevOps instance is not having any hosted pipeline capacity anymore. You can either purchase that from Microsoft or you run a agent for the pipelines locally. This chapter will show the local setup.
 
 1. Sign in to [Azure DevOps](https://dev.azure.com/).
@@ -226,7 +239,7 @@ This starts the configuration process for the local agent.
 
 ---
 
-### 8️⃣ Set up Build Pipeline in Azure DevOps
+### 7️⃣ Set up Build Pipeline in Azure DevOps
 To automate our deployments we will create a pipeline which will trigger on each commit, export the solution as a managed solution from DEV and import the solution to TEST.
 
 1. Go to your repository on the top level and click on **Set up build**
@@ -276,7 +289,7 @@ To automate our deployments we will create a pipeline which will trigger on each
 
 ---
 
-### 9️⃣ Trigger build from environment
+### 8️⃣ Trigger build from environment
 After changes are done we want to trigger the deployment pipeline. Follow these steps:
 
 1. Make change in solution. Add Yes/No choice field "Would you recommend this workshop to a friend?" and add the field to form.
