@@ -20,7 +20,7 @@ Playwright is an open source framework, created by Microsoft to allow testing ac
 
 4. Install the Playwright Extension for VSCode
 
- ![alt text](images/image.png)
+ ![alt text](Images/image.png)
 
 5. Once installed, open Commands (Ctrl + Shift + P) and type Test and run the command Test>: Install Playwright
 
