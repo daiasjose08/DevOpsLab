@@ -148,8 +148,9 @@
 6. (Optional) If you used a pipeline name different from 'My First Custom Pipeline' in the workshop, open the imported cloud flow in edit mode.
 7. Edit the trigger condition to the following: @equals(triggerOutputs()?['body/OutputParameters/DeploymentPipelineName'], 'Nameofyourpipeline').
    ![import](images/setup_pipeline17.jpg)
-8. Modify the **Assigned to** field and add yourselves as an approver in the **Start and wait for an approval** action. 
-9. Save and publish the cloud flow. 
+8. Modify the **Assigned to** field and add yourselves as an approver in the **Start and wait for an approval** action.
+   ![import](images/setup_pipeline24.jpg)
+10. Save and publish the cloud flow. 
 ---
 
 ### 6️⃣ Run the Pipeline  
