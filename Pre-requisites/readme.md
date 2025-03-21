@@ -4,15 +4,15 @@ To enable a smooth lab experience, we require you to have completed some pre-wor
 
 ## Set Up three Developer Environments for the Power Platform ALM Workshop
 
-### Sign Up for Developer Environments
+### Sign Up for Developer Environments  
 
-#### If You Have a Work/School Account
+#### Option 1: No Work/School Account (Sandbox Tenant)  
+If you **don't have a work/school account** or prefer a **Sandbox tenant** to explore Power Platform:  
+1. **[Create a test tenant](https://learn.microsoft.com/en-us/power-platform/developer/create-developer-environment#how-to-create-a-test-tenant)**.  
+2. Sign up for the [Power Apps Developer Plan](https://developer.microsoft.com/en-us/power-platform).  
 
-If you already have a work or school account and want to use it to learn Power Platform, proceed to the next section.
-
-#### If You Don't Have a Work/School Account
-
-If you don't have a work or school account or prefer a Sandbox tenant to learn Power Platform then first, create a [test tenant](https://learn.microsoft.com/en-us/power-platform/developer/create-developer-environment#how-to-create-a-test-tenant) and then proceed to next section.
+#### Option 2: Using a Work/School Account  
+If you **already have a work/school account** and want to use it for learning Power Platform, proceed to the next section.  
 
 ---
 
@@ -23,6 +23,7 @@ If you don't have a work or school account or prefer a Sandbox tenant to learn P
 1. **Login** to [Power Platform Admin Center](https://admin.powerplatform.microsoft.com/) using your Microsoft account.
 2. Ensure **New admin center toggle** is turned on.
 3. Navigate to **Manage → Environments → New**.
+ ![Admin Center](./images/createENV1.jpg)
 4. Use the following settings to create three environments: DEV, UAT, and PROD.
 
 | Setting                     | DEV         | UAT         | PROD        |
@@ -37,8 +38,14 @@ If you don't have a work or school account or prefer a Sandbox tenant to learn P
 | **Add a Dataverse data store** | Yes | Yes | Yes |
 | **Pay-as-you-go with Azure** | No | No | No |
 
+ ![Create Environment](./images/createENV2.jpg)
+
 5. Click **Save** to create the new environment.
+
+ ![Save Environment](./images/createENV3.jpg)
+
 6. Repeat steps **1-5** for all three environments: **DEV, UAT, and PROD**.
+ ![All Environments](./images/createENV4.jpg)
 
 ---
 
@@ -46,7 +53,7 @@ If you don't have a work or school account or prefer a Sandbox tenant to learn P
 
 - Ensure all environments follow the same settings for consistency.
 - The **DEV** environment is the source for the CPPS 2025 ALM workshop.
-- The **UAT** and **PROD** environments are the target environments for testing and deployment.
+- The **UAT** and **PROD** environments are the target environments for testing and deployment. These two environments must be enabled as **managed** environments. 
 - Depending on your employer, you may have the environments already, but the environments do need to be separate to your current environments to prevent inadvertent moving of solutions around and corruption
 - Microsoft provides all users the ability to have 3 developer environments which are perfect for our lab.
 

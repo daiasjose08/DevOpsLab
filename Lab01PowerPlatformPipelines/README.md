@@ -1,87 +1,184 @@
 # Workshop 1: Use Power Platform Pipelines for Solution Deployments
 
-## Workshop Pre-requisites
-- Three Power Platform environments to create a pipeline.
-- Identify the host, development, and target environments.
-- All environments used in pipelines must have a Microsoft Dataverse database.
-- You must have a Power Platform administrator or Dataverse system administrator role to install the pipelines application.
-- The target environment used in the pipeline must be enabled as [Managed Environments](https://learn.microsoft.com/en-us/power-platform/admin/managed-environment-overview).
-- Environment IDs of the development and target environments. More information: [Find your environment and organization ID](https://learn.microsoft.com/power-platform/admin/environments-overview)
+## Workshop Pre-requisites  
+- Three Power Platform environments to create a pipeline.  
+- Identify the host, development, and target environments.  
 
-## Introduction
-- **Deployment Pipeline Configuration app** - A Power Platform tool that helps automate and manage deployments across environments like Development, Test, and Production. It streamlines ALM processes, supports version control, and integrates with Power Platform Pipelines for efficient solution deployment.
-- **Host environment** - This special-purpose environment acts as the storage and management plane for all pipeline configuration, security, and run history.
-- **Development environment** - This environment is where you develop solutions. A pipeline can be run from within any development environment linked to it.
-- **Target environment** - The destination environment a pipeline deploys to, such as integration testing, user acceptance testing (UAT), or production.
+  | Development | UAT       | PROD      | HOST      |
+  |------------|----------|----------|----------|
+  | CPPS DEV   | CPPS UAT | CPPS PROD | CPPS PROD |
 
-## Workshop Solution
-Download the solution file and save it on your local machine.
+- All environments used in pipelines must have a Microsoft Dataverse database.  
+- You must have a **Power Platform administrator** or **Dataverse system administrator** role to install the pipelines application.  
+- The target environments used in the pipeline must be enabled as [Managed Environments](https://learn.microsoft.com/en-us/power-platform/admin/managed-environment-overview).  
+- Environment IDs of the development and target environments. More info: [Find your environment and organization ID](https://learn.microsoft.com/power-platform/admin/environments-overview).  
 
-## Lab Instructions
+## Introduction  
+- **Deployment Pipeline Configuration App** – A Power Platform tool that automates and manages deployments across environments like Development, Test, and Production. It streamlines ALM processes, supports version control, and integrates with Power Platform Pipelines for efficient solution deployment.  
+- **Host Environment** – A special-purpose environment that acts as the storage and management plane for all pipeline configuration, security, and run history.  
+- **Development Environment** – The environment where solutions are developed. Pipelines can be run from any linked development environment.  
+- **Target Environment** – The destination environment where a pipeline deploys solutions, such as **UAT** or **Production**.  
 
-### Import Workshop Solution to Your Development Environment
-1. Sign in to [Power Apps](https://make.powerapps.com), then select the development environment identified in the pre-requisites.
-2. Navigate to **Solutions**, then on the command bar, select **Import**.
-3. On the **Import a solution** page, select **Browse** to locate the solution file downloaded from the workshop files.
-4. Select **Next**, leave all default settings as is, and select **Import**.
+## Workshop Solution  
+📥 **Download the [solution file](LabSolution/ALMSolution_1_0_0_0.zip) and save it on your local machine.**  
 
-*Your solution imports in the background and may take a few moments.*
+---
 
-### Install Pipelines Application in Your Host Environment
-1. Sign in to [Power Platform Admin Center](https://admin.powerplatform.microsoft.com), then select **Resources > Dynamics 365 apps**.
-2. Scroll down within the right-side panel until you find **Power Platform Pipelines**.
-3. Click the three dots next to the app and select **Install**.
-4. Select the host environment identified in the pre-requisites.
-5. Agree to the terms and select **Install**.
+## Lab Instructions  
 
-*Once installed, the deployment pipelines configuration application appears in the list of installed apps.*
+### 1️⃣ Import Workshop Solution to Your Development Environment  
+1. Sign in to [Power Apps](https://make.powerapps.com).
+2. Select the **development environment (CPPS DEV)** from the prerequisites.
+3. Navigate to **Solutions**, then select **Import**.
+   ![import](images/install_ALM_solution1.jpg)
+4. On the **Import a solution** page, click **Browse** and select the solution file downloaded earlier.
+   ![import](images/install_ALM_solution2.jpg)  
+5. Click **Next**, leave default settings, and select **Import**.
 
-### Set Up Deployment Environments for Pipeline
-1. Once the deployment pipeline package installation is complete in the host environment, go to **Apps**, then play the **Deployment Pipeline Configuration** app.
-2. Select **Environments** on the left pane, then select **New** to create the environment records in Dataverse:
-   - **Name**: Enter the name for the environment record (e.g., Contoso Dev).
-   - **Environment Type**: Select **Development Environment** for the source environment and **Target Environment** for the target environment.
-   - **Environment Id**: Be sure to select the correct ID.
-   - **Description**: Add some description.
-3. Select **Save**.
-4. Refresh the form, then verify **Validation Status** equals **Success**.
-5. Repeat steps 2-4 until both environments (source and target) are added as records.
+⏳ *Solution import may take a few moments.*  
 
-### Configure the Deployment Pipeline
-1. Select **Pipelines** on the left navigation pane of the **Deployment Pipeline Configuration** app, then select **New**:
-   - **Name**: My First Custom Pipeline
-   - **Description**: To be used during the CPPS 2025 ALM workshop
-2. Within the **Linked Development Environments** grid, select **Add Existing Development Environment**, then associate the development environment.
-3. Within the **Deployment Stages** grid, select **New Deployment Stage**.
-4. Enter the details for the new stage, then select **Save & Close**:
-   - **Name**: Deploy to target environment
-   - **Description**: Deploy solution from source to target environment
-   - **Target Deployment Environment ID**: Select the target environment
-   - **Pre-Deployment Step Required**: Select this box to configure a cloud flow for deployment approval
+---
 
-### Create Approvals for Deployment Using Power Automate Cloud Flow
-1. Navigate to [Power Automate](https://make.powerautomate.com) and select the host environment for cloud flow development.
-2. Select **Solutions** on the left pane and click **New Solution**.
-3. Enter the details for the new solution, then select **Create**:
-   - **Display Name**: Pipeline extension flows
-   - **Name**: Leave as-is
-   - **Publisher**: Select a publisher from the list
-4. In the new solution, select **New > Automation > Cloud flow > Automated**.
-5. Name your flow **Pre-Deployment Approval Flow**.
-6. Search for **When an action is performed**, select this trigger, then click **Create**.
-7. In the editor, configure the trigger action as follows:
-   - **Catalog**: Microsoft Dataverse Common
-   - **Category**: Power Platform Pipelines
-   - **Table name**: (none)
-   - **Action name**: OnPreDeploymentStarted
-8. Select **New Step**.
-9. Search for **Approval**, then select **Start and wait for an approval** and configure it as follows:
-   - **Approval Type**: Approve/Reject - Everyone must approve
-   - **Title**: Approve Deployment
-   - **Assigned to**: Assign it to yourself
-10. Select **New Step > Condition**.
-11. Configure the condition to check if **Outcome** from approval is equal to **Approve**.
-12. In the **If yes** branch, select **New Step**.
+### 2️⃣ Install Pipelines Application in Your Host Environment  
+1. Sign in to the [Power Platform Admin Center](https://admin.powerplatform.microsoft.com).  
+2. Select **Manage > Dynamics 365 apps**.
+   ![import](images/pipeline_app1.jpg)
+3. Scroll down to find **Power Platform Pipelines**.  
+4. Click the **three dots** next to the app and select **Install**.
+   ![import](images/pipeline_app2.jpg)
+5. Select the **host environment (CPPS PROD)** from the prerequisites.
+   ![import](images/pipeline_app3.jpg)
+6. Agree to the terms and select **Install**.  
+
+✅ *Once installed, the deployment pipelines configuration app appears in the list of installed apps.*  
+
+---
+
+### 3️⃣ Set Up Deployment Environments for the Pipeline  
+1. Once the **Deployment Pipeline** package is installed in the **host environment**, go to **Apps** and open **Deployment Pipeline Configuration**.
+   ![import](images/setup_pipeline1.jpg)
+   ![import](images/setup_pipeline2.jpg)
+2. Select **Environments** > **New** to create environment records in Dataverse:
+   ![import](images/setup_pipeline3.jpg)
+   - **Name**: (e.g., CPPS DEV)  
+   - **Environment Type**: Select **Development Environment** for source, **Target Environment** for targets  
+   - **Environment ID**: Enter the correct ID  
+   - **Description**: Optional
+3. Click **Save**.  
+4. Refresh the form and verify that **Validation Status = Success**.  
+5. Repeat steps 2-4 for all three environments **CPPS DEV, CPPS UAT, CPPS PROD**.
+   ![import](images/setup_pipeline5.jpg) 
+
+---
+
+### 4️⃣ Configure the Deployment Pipeline  
+1. In the **Deployment Pipeline Configuration** app, go to **Pipelines** > **New**:
+   ![import](images/setup_pipeline6.jpg)
+   - **Name**: My First Custom Pipeline  
+   - **Description**: CPPS 2025 ALM workshop
+   ![import](images/setup_pipeline7.jpg)
+2. Click **Save**.  
+3. In the **Linked Development Environments** section, click **Add Existing Development Environment** and select **CPPS DEV**.
+   ![import](images/setup_pipeline8.jpg)
+   ![import](images/setup_pipeline9.jpg)
+4. In **Deployment Stages**, click **New Deployment Stage**:
+   ![import](images/setup_pipeline10.jpg)
+   - **Name**: Deploy to UAT Environment  
+   - **Description**: Deploy solution to UAT  
+   - **Target Deployment Environment ID**: Select **CPPS UAT**  
+   - Click **Save & Close**.
+   
+   ![import](images/setup_pipeline11.jpg)  
+5. Add another **New Deployment Stage**:  
+   - **Name**: Deploy to PROD Environment  
+   - **Description**: Deploy solution to PROD  
+   - **Previous Deployment Stage**: Select **Deploy to UAT**  
+   - **Target Deployment Environment ID**: Select **CPPS PROD**  
+   - **Pre-Deployment Step Required**: ✅ (for approval setup)  
+   - Click **Save & Close**.
+   
+   ![import](images/setup_pipeline12.jpg)
+   ![import](images/setup_pipeline13.jpg)
+
+---
+
+### 5️⃣ Create Deployment Approvals Using Power Automate  
+
+#### 📌 Option 1: Import Solution with the Cloud Flow  
+1. Download the [solution file](LabSolution/PipelineExtensionFlows_1_0_0_1.zip) and save it on your local machine.
+2. Choose the **host environment (CPPS PROD)** from the prerequisites for importing the solution.
+3. Navigate to **Solutions**, then select **Import**.
+4. On the **Import a solution** page, click **Browse** and select the solution file downloaded from step1.
+5. Click **Next**, leave default settings, and select **Import**.
+6. (Optional) If you used a pipeline name different from 'My First Custom Pipeline' in the workshop, open the imported cloud flow in edit mode.
+7. Edit the trigger condition to the following: @equals(triggerOutputs()?['body/OutputParameters/DeploymentPipelineName'], 'Nameofyourpipeline').
+   ![import](images/setup_pipeline17.jpg)
+8. Modify the **Assigned to** field and add yourselves as an approver in the **Start and wait for an approval** action.
+   ![import](images/setup_pipeline24.jpg)
+10. Save and publish the cloud flow. 
+
+#### 📌 Option 2: Manually Create the Cloud Flow  
+1. Open [Power Automate](https://make.powerautomate.com) and select the **host environment**.  
+2. Go to **Solutions** > **New Solution**.  
+3. Enter the following details and click **Create**:  
+   - **Display Name**: Pipeline Extension Flows  
+   - **Name**: (leave as-is)  
+   - **Publisher**: Select from the list
+   ![import](images/setup_pipeline14.jpg) 
+4. Inside the solution, click **New > Automation > Cloud Flow > Automated**.
+   ![import](images/setup_pipeline15.jpg)
+5. Name the flow **Pre-Deployment Approval Flow** and select **Create**.
+   ![import](images/setup_pipeline16.jpg)  
+6. Configure the **When an action is performed** trigger:  
+   - **Catalog**: Microsoft Dataverse Common  
+   - **Category**: Power Platform Pipelines  
+   - **Action Name**: OnPreDeploymentStarted
+   - **Trigger Condition**: @equals(triggerOutputs()?['body/OutputParameters/DeploymentPipelineName'], 'My First Custom Pipeline')
+   ![import](images/setup_pipeline17.jpg)
+7. Click **New Step** and add **Start and wait for an approval**:  
+   - **Approval Type**: Approve/Reject – Everyone must approve  
+   - **Title**: Approve Deployment  
+   - **Assigned To**: (your email)  
+8. Click **New Step > Condition**.  
+9. Configure the condition to proceed with deployment if approved -Outcome equals Approve.   
+10. If outcome is **Approve**, click **New Step** to call the unbound action 'UpdatePreDeploymentStepStatus'.
+   - **Action Name**: UpdatePreDeploymentStepStatus
+   - **Item/StageRunID**: Add Dynamic content **ActionInputs StageRunID
+   - **PreDeploymentStepStatus**:20
+11. If outcome is not equal to **Approve**, click **New Step** to call the unbound action 'UpdatePreDeploymentStepStatus'.
+   - **Action Name**: UpdatePreDeploymentStepStatus
+   - **Item/StageRunID**: Add Dynamic content **ActionInputs StageRunID
+   - **PreDeploymentStepStatus**:30
+   ![import](images/setup_pipeline18.jpg) 
+12. Click **Save** to save the flow. 
+
+---
+
+### 6️⃣ Run the Pipeline  
+1. Navigate to your development environment (CPPS DEV) and go to **Solutions**.
+2. Select the solution imported in Step 1.  
+3. Select **Overview** from the left navigation pane.  
+4. Choose **My First Custom Pipeline**.  
+5. Select **Deploy to UAT**, then **Deploy here**.
+   ![import](images/setup_pipeline19.jpg) 
+6. Review the summary and select **Deploy**.
+   ![import](images/setup_pipeline20.jpg) 
+7. After deployment to UAT, select **Deploy to PROD**.
+   ![import](images/setup_pipeline21.jpg) 
+8. Approve the request in **MS Teams/Outlook**.
+   
+   ![import](images/setup_pipeline22.jpg) 
+10. Once deployment to the target environment finishes, review the run histories in **Deployment Pipeline Configuration**.
+   ![import](images/setup_pipeline23.jpg) 
 
 
-This guide helps you set up and configure Power Platform Pipelines for automated deployments, ensuring efficient ALM practices. 🚀
+---
+
+## 🚀 Summary  
+✅ Installed **Power Platform Pipelines**  
+✅ Configured **Deployment Environments**  
+✅ Created a **Deployment Pipeline**  
+✅ Implemented **Approval Workflows** with **Power Automate**  
+✅ Ran **Pipeline** to deploy solutions  
+
+Happy building! 🎯🚀  
