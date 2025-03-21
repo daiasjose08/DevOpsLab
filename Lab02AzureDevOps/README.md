@@ -13,7 +13,7 @@
 - Azure DevOps project set up (see Pre-Requisits)
 
 ## Workshop Solution  
-📥 **Download the [solution file - ALM Azure DevOps Solution](LabSolution\ALMAzureDevOpsSolution_1_0_0_1.zip) and save it on your local machine.**  
+📥 **Download the [solution file - ALM Azure DevOps Solution](\LabSolution\ALMAzureDevOpsSolution_1_0_0_1.zip) and save it on your local machine.**  
 
 ---
 
